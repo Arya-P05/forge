@@ -12,8 +12,6 @@
 - **Conflict-free merges** — reconnect after going offline and watch both sides merge automatically
 - **Multi-server scaling** — Redis Pub/Sub broadcasts updates across any number of server instances
 
-## Screenshots
-
 ### Live cursors — two users editing the same file simultaneously
 ![live cursors](screenshots/03-live-cursors.png)
 
@@ -59,7 +57,7 @@ docker-compose up redis
 docker-compose up
 ```
 
-## Demo
+## How to Test It Yourself
 
 1. Open two browser windows at http://localhost:3000
 2. Edit the same line in both — changes merge instantly via CRDT
@@ -89,7 +87,3 @@ Browser Tab A                    Browser Tab B
 **Conflict resolution:** Yjs uses a CRDT called YATA. Concurrent edits to the same position are merged deterministically without user intervention, preserving all intent.
 
 **Offline:** y-indexeddb persists the full document state to IndexedDB. When reconnecting, the client sends its state vector; the server replies with only the missing updates. Zero full-document transfers.
-
-## Resume Bullet
-
-> Built a local-first collaborative code editor using Yjs CRDTs, WebSockets, IndexedDB, and Redis Pub/Sub — enabling real-time multiplayer editing, offline conflict resolution, cursor presence, and horizontally scalable document synchronization.
