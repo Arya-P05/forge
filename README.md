@@ -1,4 +1,4 @@
-# Forge — Local-First Collaborative Code Editor
+# Forge: A Local-First Collaborative Code Editor
 
 > Real-time multiplayer editing · Offline conflict resolution · Live cursors · Redis Pub/Sub scaling
 
