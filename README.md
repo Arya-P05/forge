@@ -38,7 +38,7 @@ docker-compose up redis
 docker-compose up
 ```
 
-## Demo Script
+## Demo
 
 1. Open two browser windows at http://localhost:3000
 2. Edit the same line in both — changes merge instantly via CRDT
@@ -68,7 +68,3 @@ Browser Tab A                    Browser Tab B
 **Conflict resolution:** Yjs uses a CRDT (Conflict-free Replicated Data Type) — specifically a sequence CRDT called YATA. Concurrent edits to the same position are merged deterministically without user intervention, preserving all intent.
 
 **Offline:** y-indexeddb persists the full document state to IndexedDB. When reconnecting, the client sends its state vector; the server replies with only the missing updates. Zero full-document transfers.
-
-## Resume Bullet
-
-> Built a local-first collaborative code editor using Yjs CRDTs, WebSockets, IndexedDB, and Redis Pub/Sub — enabling real-time multiplayer editing, offline conflict resolution, cursor presence, and horizontally scalable document synchronization.
