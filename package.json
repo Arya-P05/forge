@@ -1,0 +1,14 @@
+{
+  "name": "forge",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "concurrently \"npm run dev --workspace=apps/server\" \"npm run dev --workspace=apps/web\"",
+    "build": "npm run build --workspace=apps/web && npm run build --workspace=apps/server",
+    "server": "npm run dev --workspace=apps/server",
+    "web": "npm run dev --workspace=apps/web"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
