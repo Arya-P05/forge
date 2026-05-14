@@ -35,19 +35,15 @@ export default function Workspace() {
       : null
     if (stored) setLocalUser(stored)
 
-    // Build Y.Text map from the doc's fileTexts
+    // Build Y.Text map from the doc — only include files that actually exist.
+    // Do NOT create placeholder Y.Text objects here; that would race with the
+    // IDB "synced" seeding in yjsProvider and prevent defaults from loading.
     const buildTextMap = () => {
       const fileTexts = provider.doc.getMap<Y.Text>("fileTexts")
       const map = new Map<string, Y.Text>()
       for (const file of WORKSPACE_FILES) {
-        let ytext = fileTexts.get(file.name)
-        if (!ytext) {
-          ytext = new Y.Text()
-          provider.doc.transact(() => {
-            fileTexts.set(file.name, ytext!)
-          })
-        }
-        map.set(file.name, ytext)
+        const ytext = fileTexts.get(file.name)
+        if (ytext) map.set(file.name, ytext)
       }
       setYTextMap(map)
     }
