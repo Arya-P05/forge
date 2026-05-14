@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  background: #0d0d0d;
+}
+
+/* Monaco editor dark scrollbars */
+.monaco-editor .scrollbar .slider {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-radius: 3px;
+}
+
+/* Smooth peer cursor transitions */
+[class^="peer-cursor-"] {
+  transition: top 50ms linear, left 50ms linear;
+}
